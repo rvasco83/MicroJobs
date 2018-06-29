@@ -12,7 +12,7 @@ security:
 
             form_login:
                 login_path: login
-                check_login: login
+                check_path: login
                 default_target_path: default
                 always_use_default_target_path: true
 
@@ -29,7 +29,7 @@ security:
         - { path: ^/usuario/login, roles: IS_AUTHENTICATED_ANONYSMOUSLY }
         - { path: ^/painel, roles: ROLE_ADMIN }
 
-    enconders:
+    encoders:
         App\Entity\Usuario:
             algorithm: bcrypt
             cost: 12
