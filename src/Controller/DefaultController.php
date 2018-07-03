@@ -23,6 +23,6 @@ class DefaultController extends Controller
      */
     public function painel()
     {
-        return new Response("<h1>Login</h1>");
+        return new Response("<h1>Painel</h1>");
     }
 }
