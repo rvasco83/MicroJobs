@@ -79,91 +79,91 @@ class Usuario implements UserInterface
         return $this->id;
     }
 
-    public function getNome(): ?string
+    public function getNome()
     {
         return $this->nome;
     }
 
-    public function setNome(string $nome): self
+    public function setNome($nome)
     {
         $this->nome = $nome;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail($email)
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getSenha(): ?string
+    public function getSenha()
     {
         return $this->senha;
     }
 
-    public function setSenha(string $senha): self
+    public function setSenha($senha)
     {
         $this->senha = $senha;
 
         return $this;
     }
 
-    public function getStatus(): ?bool
+    public function getStatus()
     {
         return $this->status;
     }
 
-    public function setStatus(bool $status): self
+    public function setStatus($status)
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function getToken(): ?string
+    public function getToken()
     {
         return $this->token;
     }
 
-    public function setToken(string $token): self
+    public function setToken($token)
     {
         $this->token = $token;
 
         return $this;
     }
 
-    public function getDataCadastro(): ?\DateTimeImmutable
+    public function getDataCadastro()
     {
         return $this->data_cadastro;
     }
 
-    public function setDataCadastro(\DateTimeImmutable $data_cadastro): self
+    public function setDataCadastro($data_cadastro)
     {
         $this->data_cadastro = $data_cadastro;
 
         return $this;
     }
 
-    public function getDataAlteracao(): ?\DateTimeImmutable
+    public function getDataAlteracao()
     {
         return $this->data_alteracao;
     }
 
-    public function setDataAlteracao(?\DateTimeImmutable $data_alteracao): self
+    public function setDataAlteracao($data_alteracao)
     {
         $this->data_alteracao = $data_alteracao;
 
         return $this;
     }
 
-    public function setRoles($roles) :self
+    public function setRoles($roles)
     {
         $this->roles[] = $roles;
         return $this;
@@ -198,7 +198,7 @@ class Usuario implements UserInterface
      *
      * @return string The password
      */
-    public function getPassword () : string
+    public function getPassword ()
     {
         return $this->senha;
     }
@@ -220,7 +220,7 @@ class Usuario implements UserInterface
      *
      * @return string The username
      */
-    public function getUsername () : string
+    public function getUsername ()
     {
         return $this->email;
     }
