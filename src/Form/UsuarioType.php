@@ -21,7 +21,7 @@ class UsuarioType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => 'As senhas devem ser idênticas!',
                 'first_options' => ['label' => "Senha"],
-                'second_options' => ['label' => "Repite a Senha"],
+                'second_options' => ['label' => "Repita a Senha"],
             ])
             ->add('status')
             ->add('token')

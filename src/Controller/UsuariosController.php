@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Usuario;
+use App\Form\UsuarioType;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +14,13 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UsuariosController extends Controller
 {
+    protected  $em;
+
+    public function __construct (EntityManagerInterface $entityManager)
+    {
+        $this->em = $entityManager;
+    }
+
     /**
      * @Route("/usuarios", name="usuarios")
      */
@@ -44,8 +53,25 @@ class UsuariosController extends Controller
     public function cadastrar(Request $request)
     {
         $usuario = new Usuario();
-        $form = $this->createForm(Usuario::class, $usuario);
+        $form = $this->createForm(UsuarioType::class, $usuario);
         $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $encoder = $this->get('security.password_encoder');
+            $senha_cript = $encoder->encodePassword($usuario, $form->getData()->getPassword());
+            $usuario->setSenha($senha_cript);
+
+            $token = md5(uniqid());
+            $usuario->setToken($token);
+
+            $usuario->setRoles("ROLE_ADMIN");
+
+            $this->em->persist($usuario);
+            $this->em->flush();
+
+            $this->addFlash("success", "Cadastrado com sucesso");
+            return $this->redirectToRoute("default");
+        }
 
         return [
             'form' => $form->createView()
