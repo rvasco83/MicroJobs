@@ -77,4 +77,13 @@ class UsuariosController extends Controller
             'form' => $form->createView()
         ];
     }
+
+    /**
+     * @Route("usuario/ativar-conta/{token}", name="email_ativar_conta")
+     */
+    public function ativar_conta($token)
+    {
+
+    }
+
 }

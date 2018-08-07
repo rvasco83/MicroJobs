@@ -47,6 +47,11 @@
         <h2>Faça seu login</h2>
         <hr>
         <form class="form-signin" method="post" action="" >
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            {% endif %}
             <label for="email" class="sr-only">Endereço de e-mail</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="Email" autofocus>
             <label for="senha" class="sr-only">Senha</label>

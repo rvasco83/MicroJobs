@@ -78,7 +78,24 @@
     </nav>
 </header>
 
-<main role="main" class="pt-4">
+<main role="main" class="pt-2">
+    <div class="container">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            <div class="alert-success">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('warning') %}
+            <div class="alert-warning">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            <div class="alert-danger">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+    </div>
     {% block body %}{% endblock %}
 </main>
 
