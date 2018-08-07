@@ -50,7 +50,7 @@ class UsuariosController extends Controller
      * @Route("/usuario/cadastrar", name="cadastrar_usuario")
      * @Template("usuarios/registro.html.twig")
      */
-    public function cadastrar(Request $request)
+    public function cadastrar(Request $request, \Swift_Mailer $mailer)
     {
         $usuario = new Usuario();
         $form = $this->createForm(UsuarioType::class, $usuario);
@@ -69,7 +69,17 @@ class UsuariosController extends Controller
             $this->em->persist($usuario);
             $this->em->flush();
 
-            $this->addFlash("success", "Cadastrado com sucesso");
+            $mensagem = (new \Swift_Message($usuario->getNome() . ", ative sua conta no Microjobs SON"))
+                ->setFrom('noreply@email.com')
+                ->setTo([$usuario->getEmail() => $usuario->getNome()])
+                ->setBody($this->renderView("emails/usuarios/registro.html.twig", [
+                    'nome' => $usuario->getNome(),
+                    'token' => $usuario->getToken()
+                ]), 'text/html');
+
+            $mailer->send($mensagem);
+
+            $this->addFlash("success", "Verifique seu e-mail para completar o cadastro!");
             return $this->redirectToRoute("default");
         }
 
@@ -83,6 +93,13 @@ class UsuariosController extends Controller
      */
     public function ativar_conta($token)
     {
+        $usuario = $this->em->getRepository(Usuario::class)->findOneBy(['token' => $token]);
+        $usuario->setStatus(true);
+        $this->em->persist($usuario);
+        $this->em->flush();
+
+        $this->addFlash("success", "Cadastrado foi ativado com sucesso! Inform seu e-mail e sua senha para acessar o sistema!");
+        return $this->redirectToRoute("login");
 
     }
 

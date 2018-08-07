@@ -4,7 +4,7 @@
 <tr>
     <td>
         <p>Olá {{ nome }},</p>
-        <p>Clique <a href="{{ absolute_url(path("email_ativar_conta")) }}">nesse link</a> para ativar sua conta </p>
+        <p>Clique <a href="{{ absolute_url(path("email_ativar_conta", {"token": token})) }}">nesse link</a> para ativar sua conta </p>
     </td>
 </tr>
 {% endblock %}

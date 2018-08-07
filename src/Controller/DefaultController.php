@@ -20,9 +20,12 @@ class DefaultController extends Controller
 
     /**
      * @Route("/painel", name="painel")
+     * @Template("default/painel.html.twig")
      */
     public function painel()
     {
-        return new Response("<h1>Painel</h1>");
+        return [
+
+        ];
     }
 }
