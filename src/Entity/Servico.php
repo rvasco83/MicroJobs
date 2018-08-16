@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ServicoRepository")
@@ -20,6 +22,11 @@ class Servico
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Campo título não pode ficar em branco.")
+     * @Assert\Range(
+     *     min="40", minMessage="O campo título deve ter no mínimo 40 caracteres"
+     *     max="255", maxMessage="O campo título deve ter no máximo 255 caracteres"
+     * )
      */
     private $titulo;
 
@@ -30,11 +37,13 @@ class Servico
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Assert\NotBlank(message="Campo valor não pode ficar em branco.")
      */
     private $valor;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Campo descrição não pode ficar em branco.")
      */
     private $descricao;
 
@@ -45,26 +54,43 @@ class Servico
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Campo prazo de entrega não pode ficar em branco.")
      */
     private $prazo_entrega;
 
     /**
-     * @ORM\Column(type="string", length=1)
+     * @ORM\Column(type="string", length=1, options={"comment": "Usar P para Publicado, A para em Análise, I para Inativo, E para Excluído e R para Rejeitado"} )
+     * @Assert\Choice(choices="{"P", "A", "I", "E", "R"}")
      */
     private $status;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime_immutable")
+     * @Gedmo\Timestampable("on="create")
      */
     private $data_cadastro;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     * @Gedmo\Timestampable(on="update")
      */
     private $data_alteracao;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Selecione uma image para o job.")
+     * @Assert\Image(
+     *     mimeTypes={"image/*"},
+     *     mimeTypesMessage="Tipo de arquivo inválido",
+     *     maxHeight="1000",
+     *     maxHeightMessage="Máximo 1000px de altura",
+     *     minHeight="400",
+     *     minHeightMessage="Mínimo 400px de altura",
+     *     maxWidth="1000",
+     *     maxWidthMessage="Máximo 1000px de largura",
+     *     minWidth="400",
+     *     minWidthMessage="Mínimo 400px de largura"
+     * )
      */
     private $imagem;
 
@@ -172,24 +198,24 @@ class Servico
         return $this;
     }
 
-    public function getDataCadastro(): ?\DateTimeInterface
+    public function getDataCadastro(): ?\DateTimeImmutable
     {
         return $this->data_cadastro;
     }
 
-    public function setDataCadastro(\DateTimeInterface $data_cadastro): self
+    public function setDataCadastro(\DateTimeImmutable $data_cadastro): self
     {
         $this->data_cadastro = $data_cadastro;
 
         return $this;
     }
 
-    public function getDataAlteracao(): ?\DateTimeInterface
+    public function getDataAlteracao(): ?\DateTimeImmutable
     {
         return $this->data_alteracao;
     }
 
-    public function setDataAlteracao(?\DateTimeInterface $data_alteracao): self
+    public function setDataAlteracao(?\DateTimeImmutable $data_alteracao): self
     {
         $this->data_alteracao = $data_alteracao;
 
