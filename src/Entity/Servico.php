@@ -24,7 +24,7 @@ class Servico
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Campo título não pode ficar em branco.")
      * @Assert\Range(
-     *     min="40", minMessage="O campo título deve ter no mínimo 40 caracteres"
+     *     min="40", minMessage="O campo título deve ter no mínimo 40 caracteres",
      *     max="255", maxMessage="O campo título deve ter no máximo 255 caracteres"
      * )
      */
@@ -60,13 +60,13 @@ class Servico
 
     /**
      * @ORM\Column(type="string", length=1, options={"comment": "Usar P para Publicado, A para em Análise, I para Inativo, E para Excluído e R para Rejeitado"} )
-     * @Assert\Choice(choices="{"P", "A", "I", "E", "R"}")
+     * @Assert\Choice(choices={"P", "A", "I", "E", "R"})
      */
     private $status;
 
     /**
      * @ORM\Column(type="datetime_immutable")
-     * @Gedmo\Timestampable("on="create")
+     * @Gedmo\Timestampable(on="create")
      */
     private $data_cadastro;
 
