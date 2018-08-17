@@ -41,9 +41,18 @@ class ServicosController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $servico->setImagem(uniqid() . ".jpg");
-            $servico->setValor(30.00);
+            $imagem = $servico->getImagem();
+            $nome_arquivo = md5(uniqid()) . "." . $imagem->guessExtension();
+            $imagem->move(
+                $this->getParameter('caminho_img_job'),
+                $nome_arquivo
+            );
+            $servico->setImagem($nome_arquivo);
+
+
             $servico->setUsuario($user);
+
+            $servico->setValor(30.00);
             $servico->setStatus("A");
 
             $this->em->persist($servico);
