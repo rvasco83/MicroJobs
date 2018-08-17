@@ -4,13 +4,22 @@ namespace App\Controller;
 
 use App\Entity\Servico;
 use App\Form\ServicoType;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class ServicosController extends AbstractController
 {
+    protected  $em;
+
+    public function __construct (EntityManagerInterface $entityManager)
+    {
+        $this->em = $entityManager;
+    }
+
     /**
      * @Route("/servicos", name="servicos")
      */
@@ -25,11 +34,25 @@ class ServicosController extends AbstractController
      * @Route("/painel/servicos/cadastrar", name="cadastrar_job")
      * @Template("servicos/novo-micro-jobs.html.twig")
      */
-    public function cadastrar(Request $request)
+    public function cadastrar(Request $request, UserInterface $user)
     {
         $servico = new Servico();
         $form = $this->createForm(ServicoType::class, $servico);
         $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $servico->setImagem(uniqid() . ".jpg");
+            $servico->setValor(30.00);
+            $servico->setUsuario($user);
+            $servico->setStatus("A");
+
+            $this->em->persist($servico);
+            $this->em->flush();
+
+            $this->addFlash("success", "Cadastrado com sucesso!");
+            return $this->redirectToRoute('painel');
+
+        }
 
         return[
             'form' => $form->createView()

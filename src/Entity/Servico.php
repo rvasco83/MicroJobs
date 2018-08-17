@@ -23,21 +23,21 @@ class Servico
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Campo título não pode ficar em branco.")
-     * @Assert\Range(
-     *     min="40", minMessage="O campo título deve ter no mínimo 40 caracteres",
-     *     max="255", maxMessage="O campo título deve ter no máximo 255 caracteres"
+     * @Assert\Length(
+     *     min="10", minMessage="O campo título deve ter no mínimo {{ limit }} caracteres",
+     *     max="255", maxMessage="O campo título deve ter no máximo {{ limit }} caracteres"
      * )
      */
     private $titulo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Gedmo\Slug(fields={"titulo"}, updatable=true)
      */
     private $slug;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
-     * @Assert\NotBlank(message="Campo valor não pode ficar em branco.")
      */
     private $valor;
 
@@ -191,7 +191,7 @@ class Servico
         return $this->status;
     }
 
-    public function setStatus(string $status): self
+    public function setStatus($status): self
     {
         $this->status = $status;
 
