@@ -25,7 +25,7 @@ class ServicoType extends AbstractType
             ->add('imagem', FileType::class)
             ->add('categorias', EntityType::class, [
                 'class' => Categoria::class,
-                'choice_name' => 'nome',
+                'choice_label' => 'nome',
                 'multiple' => true,
                 'expanded' => true
             ])

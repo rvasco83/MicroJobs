@@ -31,7 +31,7 @@ class Categoria
     /**
      * @ORM\Column(type="datetime")
      */
-    private $cadastro;
+    private $data_cadastro;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -48,53 +48,53 @@ class Categoria
         $this->servicos = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getNome(): ?string
+    public function getNome()
     {
         return $this->nome;
     }
 
-    public function setNome(string $nome): self
+    public function setNome($nome)
     {
         $this->nome = $nome;
 
         return $this;
     }
 
-    public function getSlug(): ?string
+    public function getSlug()
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
+    public function setSlug($slug)
     {
         $this->slug = $slug;
 
         return $this;
     }
 
-    public function getCadastro(): ?\DateTimeInterface
+    public function getDataCadastro()
     {
-        return $this->cadastro;
+        return $this->data_cadastro;
     }
 
-    public function setCadastro(\DateTimeInterface $cadastro): self
+    public function setDataCadastro($data_cadastro)
     {
-        $this->cadastro = $cadastro;
+        $this->data_cadastro = $data_cadastro;
 
         return $this;
     }
 
-    public function getDataAlteracao(): ?\DateTimeInterface
+    public function getDataAlteracao()
     {
         return $this->data_alteracao;
     }
 
-    public function setDataAlteracao(?\DateTimeInterface $data_alteracao): self
+    public function setDataAlteracao($data_alteracao)
     {
         $this->data_alteracao = $data_alteracao;
 
