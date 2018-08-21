@@ -67,4 +67,18 @@ class ServicosController extends AbstractController
             'form' => $form->createView()
         ];
     }
+
+    /**
+     * @Route("/painel/servico/excluir/{id}", name="excluir_servico")
+     */
+    public function excluir(Servico $servico)
+    {
+        $servico->setStatus("E");
+        $this->em->persist($servico);
+        $this->em->flush();
+
+        $this->addFlash("success", "Excluído com sucesso!");
+        return $this->redirectToRoute('painel');
+    }
+
 }

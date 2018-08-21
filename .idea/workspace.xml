@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="84959dc9-1f7b-45d5-9cb3-96f70b64e503" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e718d394-970a-43ea-9b25-d697cd30fe4c.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e718d394-970a-43ea-9b25-d697cd30fe4c.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/packages/twig.yaml" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Categoria.php" afterPath="$PROJECT_DIR$/src/Entity/Categoria.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ServicoType.php" afterPath="$PROJECT_DIR$/src/Form/ServicoType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/ServicoRepository.php" afterPath="$PROJECT_DIR$/src/Repository/ServicoRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ServicosController.php" afterPath="$PROJECT_DIR$/src/Controller/ServicosController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/painel.html.twig" afterPath="$PROJECT_DIR$/templates/default/painel.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/servicos/novo-micro-jobs.html.twig" afterPath="$PROJECT_DIR$/templates/servicos/novo-micro-jobs.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,31 +41,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="painel.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ServicosController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ServicosController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="369">
+              <caret line="71" column="63" lean-forward="false" selection-start-line="71" selection-start-column="63" selection-end-line="71" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="painel.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/default/painel.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+            <state relative-caret-position="576">
+              <caret line="121" column="14" lean-forward="true" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Categoria.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Categoria.php">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="86" column="28" lean-forward="false" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
+            <state relative-caret-position="508">
+              <caret line="117" column="37" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="37" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="servico" pinned="false" current-in-tab="true">
-        <entry file="das://table:/cbe42f93/e718d394-970a-43ea-9b25-d697cd30fe4c/microjobs.servico">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -121,14 +115,14 @@
         <option value="$PROJECT_DIR$/modelos_templates/servicos/novo-micro-jobs.html.twig" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Servico.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ServicosController.php" />
         <option value="$PROJECT_DIR$/src/Form/ServicoType.php" />
         <option value="$PROJECT_DIR$/templates/servicos/novo-micro-jobs.html.twig" />
         <option value="$PROJECT_DIR$/src/Repository/ServicoRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
-        <option value="$PROJECT_DIR$/templates/default/painel.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Categoria.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ServicosController.php" />
+        <option value="$PROJECT_DIR$/templates/default/painel.html.twig" />
       </list>
     </option>
   </component>
@@ -181,7 +175,18 @@
               <item name="microjobs" type="b2602c69:ProjectViewProjectNode" />
               <item name="microjobs" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="microjobs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microjobs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="microjobs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microjobs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -254,12 +259,12 @@
       <workItem from="1534434561854" duration="12244000" />
       <workItem from="1534513074086" duration="11483000" />
       <workItem from="1534770938237" duration="11398000" />
-      <workItem from="1534858631363" duration="5274000" />
+      <workItem from="1534858631363" duration="9002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128459000" />
+    <option name="totallyTimeSpent" value="132187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -369,13 +374,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/emails/base.html.twig" />
-    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle/DependencyInjection/Configuration.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -616,20 +614,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ServicosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="20" column="5" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="20" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="590">
           <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#34#57#0#PHP" expanded="true" />
+            <element signature="e#34#57#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,10 +648,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/painel.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
+        <state relative-caret-position="508">
+          <caret line="117" column="37" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ServicosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="71" column="63" lean-forward="false" selection-start-line="71" selection-start-column="63" selection-end-line="71" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -670,6 +668,14 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/painel.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="121" column="14" lean-forward="true" selection-start-line="121" selection-start-column="14" selection-end-line="121" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
