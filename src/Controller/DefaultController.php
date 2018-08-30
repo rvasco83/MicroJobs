@@ -26,7 +26,11 @@ class DefaultController extends Controller
      */
     public function index()
     {
-        return [];
+        $micro_jobs = $this->em->getRepository(Servico::class)->findByListagem();
+
+        return [
+            'micro_jobs' => $micro_jobs
+        ];
     }
 
     /**

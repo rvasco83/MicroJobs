@@ -46,8 +46,7 @@
                         <form action="" name="form_filto_status">
                             <select name="busca_filtro" id=""
                                     class="form-control-sm form-control float-left"
-                                    onchange="document.form_filto_status.submit()"
-                            >
+                                    onchange="document.form_filto_status.submit()">
                                 <option value="" {% if status == "" %}selected="selected"{% endif %}>Filtrar Microjob por</option>
                                 <option value="P" {% if status == "P" %}selected="selected"{% endif %}>Publicados</option>
                                 <option value="A" {% if status == "A" %}selected="selected"{% endif %}>Em Análise</option>
