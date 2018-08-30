@@ -24,9 +24,11 @@ class DefaultController extends Controller
      * @Route("/", name="default")
      * @Template("default/index.html.twig")
      */
-    public function index()
+    public function index(Request $request)
     {
-        $micro_jobs = $this->em->getRepository(Servico::class)->findByListagem();
+        $busca = $request->get('busca');
+        $micro_jobs = $this->em->getRepository(Servico::class)
+            ->findByListagem($busca);
 
         return [
             'micro_jobs' => $micro_jobs
